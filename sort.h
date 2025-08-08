@@ -1,26 +1,9 @@
+#ifndef _SORT_H
+#define _SORT_H
+
 #include <stdlib.h>
 #include <stdio.h>
-
-/**
- * print_array - Prints an array of integers
- *
- * @array: The array to be printed
- * @size: Number of elements in @array
- */
-void print_array(const int *array, size_t size)
-{
-    size_t i;
-
-    i = 0;
-    while (array && i < size)
-    {
-        if (i > 0)
-            printf(", ");
-        printf("%d", array[i]);
-        ++i;
-    }
-    printf("\n");
-}
+#include <time.h>
 
 /**
  * struct listint_s - Doubly linked list node
@@ -31,7 +14,21 @@ void print_array(const int *array, size_t size)
  */
 typedef struct listint_s
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
+
+
+/* print.c */
+void print_array(const int *array, size_t size);
+void print_list(const listint_t *list);
+void check_list(const listint_t *list);
+void check_array(const int *array, size_t size);
+int *rand_array(int len, int max);
+
+void bubble_sort(int *array, size_t size);
+void insertion_sort_list(listint_t **list);
+void selection_sort(int *array, size_t size);
+
+#endif
